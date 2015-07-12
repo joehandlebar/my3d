@@ -1,0 +1,26 @@
+{
+  "name": "my3d",
+  "version": "1.0.0",
+  "description": "personal library for 3d matrix and vector operations",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-concat": "^2.6.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joehandlebar/my3d.git"
+  },
+  "author": "joehandlebar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joehandlebar/my3d/issues"
+  },
+  "homepage": "https://github.com/joehandlebar/my3d#readme"
+}
