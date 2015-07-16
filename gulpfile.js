@@ -6,8 +6,8 @@ gulp.task('scripts', function() {
 					 'src/vector3d.js',
 					 'src/points3d.js',
 					 'src/my3d.js',
-					 'engine.js',
-					 'shapes.js'])	
+					 'src/engine.js',
+					 'src/shapes.js'])	
 		   .pipe(concat('my3d.js'))
 		   .pipe(gulp.dest('./'))
 });
