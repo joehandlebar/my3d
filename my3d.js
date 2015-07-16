@@ -245,6 +245,10 @@ Matrix3D.prototype = {
 		return this.transform(My3D.translateZ(z));
 	},
 
+	rotate: function(xdeg, ydeg, zdeg) {
+		return this.transform(My3D.rotate(xdeg, ydeg, zdeg));
+	},
+
 	rotateX: function(deg) {
 		return this.transform(My3D.rotateX(deg));
 	},
@@ -348,10 +352,6 @@ Vector3D.prototype = {
 		return copy;
 	}, 
 
-	transpose: function() {
-		this.t = true;
-		return this;
-	},
 	//returns component of vector with largest magnitude
 	max: function () {
 	   var m = 0;
@@ -363,6 +363,32 @@ Vector3D.prototype = {
 	   });
 
 	   return m;
+	},
+
+	add: function(x) {
+		var v = this.data,
+			v2 = x.data,
+			sum = [];
+
+		sum[0] = v[0] + v2[0];
+		sum[1] = v[1] + v2[1];
+		sum[2] = v[2] + v2[2];
+		sum[3] = v[3] + v2[3];
+
+		return new Vector3D(sum);
+	},
+
+	subtract: function(x) {
+		var v = this.data,
+			v2 = x.data,
+			difference = [];
+
+		difference[0] = v[0] - v2[0];
+		difference[1] = v[1] - v2[1];
+		difference[2] = v[2] - v2[2];
+		difference[3] = v[3] - v2[3];
+
+		return new Vector3D(difference);
 	},
 
 	//returns dot product v.v2
@@ -471,7 +497,7 @@ Points3D.prototype = Object.create(Matrix3D.prototype);
 Points3D.prototype.transform = function(t) {
 
 	var A = this.data,
-		T = t.data,
+		T = t.copy().data,
 		i, leng,
 		x, y, z, v;
 
@@ -504,7 +530,7 @@ Points3D.prototype.transform = function(t) {
 	return this;
 }
 
-//main library, mostly for generating 4x4 
+//main library, mostly for generating 4x4 matrices 
 var My3D = {
 	//M: Matrix3D,
 	M: function(m) {
@@ -601,6 +627,14 @@ var My3D = {
 
 	translateZ: function(z) {
 		return this.translate(0, 0, z);
+	},
+
+	rotate: function(xdeg, ydeg, zdeg) {
+		var m = this.rotateX(xdeg)
+					.rotateY(ydeg)
+					.rotateZ(zdeg);
+
+		return m;
 	},
 
 	rotateX: function(deg) {

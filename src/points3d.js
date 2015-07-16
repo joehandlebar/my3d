@@ -9,7 +9,7 @@ Points3D.prototype = Object.create(Matrix3D.prototype);
 Points3D.prototype.transform = function(t) {
 
 	var A = this.data,
-		T = t.data,
+		T = t.copy().data,
 		i, leng,
 		x, y, z, v;
 

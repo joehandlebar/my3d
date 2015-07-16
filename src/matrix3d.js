@@ -245,6 +245,10 @@ Matrix3D.prototype = {
 		return this.transform(My3D.translateZ(z));
 	},
 
+	rotate: function(xdeg, ydeg, zdeg) {
+		return this.transform(My3D.rotate(xdeg, ydeg, zdeg));
+	},
+
 	rotateX: function(deg) {
 		return this.transform(My3D.rotateX(deg));
 	},

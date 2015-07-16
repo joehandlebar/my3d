@@ -11,10 +11,6 @@ Vector3D.prototype = {
 		return copy;
 	}, 
 
-	transpose: function() {
-		this.t = true;
-		return this;
-	},
 	//returns component of vector with largest magnitude
 	max: function () {
 	   var m = 0;
@@ -26,6 +22,32 @@ Vector3D.prototype = {
 	   });
 
 	   return m;
+	},
+
+	add: function(x) {
+		var v = this.data,
+			v2 = x.data,
+			sum = [];
+
+		sum[0] = v[0] + v2[0];
+		sum[1] = v[1] + v2[1];
+		sum[2] = v[2] + v2[2];
+		sum[3] = v[3] + v2[3];
+
+		return new Vector3D(sum);
+	},
+
+	subtract: function(x) {
+		var v = this.data,
+			v2 = x.data,
+			difference = [];
+
+		difference[0] = v[0] - v2[0];
+		difference[1] = v[1] - v2[1];
+		difference[2] = v[2] - v2[2];
+		difference[3] = v[3] - v2[3];
+
+		return new Vector3D(difference);
 	},
 
 	//returns dot product v.v2

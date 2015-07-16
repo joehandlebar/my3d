@@ -1,4 +1,4 @@
-//main library, mostly for generating 4x4 
+//main library, mostly for generating 4x4 matrices 
 var My3D = {
 	//M: Matrix3D,
 	M: function(m) {
@@ -95,6 +95,14 @@ var My3D = {
 
 	translateZ: function(z) {
 		return this.translate(0, 0, z);
+	},
+
+	rotate: function(xdeg, ydeg, zdeg) {
+		var m = this.rotateX(xdeg)
+					.rotateY(ydeg)
+					.rotateZ(zdeg);
+
+		return m;
 	},
 
 	rotateX: function(deg) {
