@@ -835,7 +835,7 @@ function _extend(obj, props) {
 function Scene3D(canvas) {
 	Points3D.call(this, []);
     
-	this.runTransition = Transition3D.call(this);
+	//this.runTransition = Transition3D.call(this);
 
 	this.focalLength = 1000;
 	this.context = canvas.getContext('2d');
